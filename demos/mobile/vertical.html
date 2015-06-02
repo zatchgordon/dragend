@@ -5,7 +5,7 @@
   <title>dragend JS &ndash; a touch ready, full responsive, content swipe script</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-
+    <link rel="stylesheet" href="src/foundation.min.css">
   <link rel="stylesheet" media="all" href="src/styles.css">
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -24,19 +24,24 @@
                 <div id="demo">
                   <ul>
                     <li class="dragend-page blue">
-                      <div class="left">my left side</div> 
-                      <div class="right">my right side</div>                     
+                      <article>
+                        <h1>This is page 1</h1>
+                        <button value="2"> go down</button>
+                      </article>                 
                     </li>
                     <li class="dragend-page red">
-                     <div class="left">my left side</div> 
-                      <div class="right">my right side</div>   
+                      <article>
+                     <h1>This is page 2</h1>
+                     <button value="3">go down</button> 
+                     <button value="1">go up</button> 
+                     </article>    
                     </li>
                     <li class="dragend-page green">
-                      <img src="../img/demo-image-3.jpg" alt="" width="100%" height="100%">
-                      <div class="copyright">
-                        
-                      </div>
-                    </li>
+                      <article>
+                      <h1>This is page 3</h1> 
+                      <button value="2">go up</button> 
+                      <button value="1">Go To Top</button> 
+                      </article>  
                   </ul>
                 </div>
             
@@ -47,31 +52,70 @@
     </div>
   </div>
 
-
-
-  <script type="text/javascript" src="../lib/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.min.js"></script>
+<script src="./src/lib/jquery.mousewheel.js"></script>
+  
   <script type="text/javascript" src="../../dist/dragend.min.js"></script>
 
   <script>
 
+      function resizeDiv() {
+         vpw = $(window).width();
+         vph = $(window).height();
+         $("#demo").css({'height': vph + 'px'});
+    }
+      function scroll(){
+         $('#demo').mousewheel(function(event, delta) {
+          if (delta=="-1"){$("#demo").dragend("up");}
+          if (delta=="1"){$("#demo").dragend("down");}
+            $('#demo').unbind("mousewheel");
+            setTimeout(function(){
+                  scroll()
+            },300);
+
+            return false;
+                    });
+      }
+
+
     $(function() {
-      $(window).scroll(function(e){
-         e.preventDefault();
-        e.stopPropagation();
-      })
-      var container = $("#swipe-container");
-
-
-      $("#demo").dragend({
+      scroll();
+      //FIT TO SCREEN EVEN ON RESIZE
+        resizeDiv();
+        window.onresize = function(event) {
+          resizeDiv();
+        }
+      //INITIALIZE DRAGGING
+         $("#demo").dragend({
         direction: "vertical",
         stopPropagation: true,
-        scribe: "40px"
+        scribe: "0px",
+        duration: "500"
       });
+
+      //INITIALIZE MOUSWHEEL SCROLLING    
+       
+      //INITIALIZE BUTTONS
+          $("button").click(function(e){
+            
+            var page = $(this).attr("value");
+           
+           $("#demo").dragend({
+        scrollToPage: page,
+        direction: "vertical",
+        stopPropagation: true,
+        scribe: "0px",
+        duration: "500"
+      });
+
+          });
+      //SHOW PAGE AFTER LOAD
+      var container = $("html");
 
       $(window).on("load", function() {
         container.css("opacity", 1)
       })
-
+ 
     });
   </script>
 
