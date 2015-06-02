@@ -91,7 +91,30 @@
 
 </head>
 <body>
-
+<div class="content">
+                <div id="demo">
+                  <ul>
+                    <li class="dragend-page">
+                      <img src="./../img/demo-image-1.jpg" alt="" width="640" height="429">
+                      <div class="copyright">
+                        <div>Copyright by <a href="http://www.flickr.com/photos/pagedooley/6132821813/">pagedooley</a></div>
+                      </div>
+                    </li>
+                    <li class="dragend-page">
+                      <img src="./../img/demo-image-2.jpg" alt="" width="640" height="429">
+                      <div class="copyright">
+                        <div>Copyright by <a href="http://www.flickr.com/photos/ishmaelo/212317535/">ishmaelo</a></div>
+                      </div>
+                    </li>
+                    <li class="dragend-page">
+                      <img src="./../img/demo-image-3.jpg" alt="" width="640" height="429">
+                      <div class="copyright">
+                        <div>Copyright by <a href="http://www.flickr.com/photos/msabbath/2350853664/">msabbath</a></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
   <div id="phone">
     <div id="gallery">
       <ul>
@@ -127,9 +150,21 @@
 
   <script>
 
+    
+
     $(function() {
+ $("#demo").dragend({
+        direction: "vertical",
+        stopPropagation: true,
+        scribe: "40px"
+      });
+
+
+
+
       $("#gallery").dragend({
         borderBetweenPages: 5,
+        direction:"vertical",
         afterInitialize: function() {
           $("#phone").css("visibility", "visible");
         },
@@ -174,6 +209,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
+  
   </script>
 
 </body>

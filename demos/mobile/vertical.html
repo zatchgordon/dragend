@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>dragend JS &ndash; a touch ready, full responsive, content swipe script</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" media="all" href="src/styles.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript" src="src/lib/modernizr.js"></script>
+
+</head>
+<body>
+
+  <div id="contend">
+    <div id="swipe-container">
+     
+          <div class="page-content">
+              <div class="content">
+                <div id="demo">
+                  <ul>
+                    <li class="dragend-page blue">
+                      <div class="left">my left side</div> 
+                      <div class="right">my right side</div>                     
+                    </li>
+                    <li class="dragend-page red">
+                     <div class="left">my left side</div> 
+                      <div class="right">my right side</div>   
+                    </li>
+                    <li class="dragend-page green">
+                      <img src="../img/demo-image-3.jpg" alt="" width="100%" height="100%">
+                      <div class="copyright">
+                        
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            
+            </div>
+          </div>
+       
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="../lib/jquery.min.js"></script>
+  <script type="text/javascript" src="../../dist/dragend.min.js"></script>
+
+  <script>
+
+    $(function() {
+      $(window).scroll(function(e){
+         e.preventDefault();
+        e.stopPropagation();
+      })
+      var container = $("#swipe-container");
+
+
+      $("#demo").dragend({
+        direction: "vertical",
+        stopPropagation: true,
+        scribe: "40px"
+      });
+
+      $(window).on("load", function() {
+        container.css("opacity", 1)
+      })
+
+    });
+  </script>
+
+</body>
+</html>

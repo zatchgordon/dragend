@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background: #333745;
+}
+
+body, footer {
+  color: #333745;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.blue{background:blue;}
+.red{background:red;}
+.green{background:green;}
+
+
+.confine,#swipe-container .page-content {
+  top:0;
+  left:0;
+  bottom:0;
+  margin: 0 auto;
+  padding: 0 0rem;
+}
+
+
+.page {
+  position: relative;
+  height: 100%;
+}
+
+#demo {
+  height: 1%;
+}
+
+#demo li {
+  position: relative;
+}
+
+#demo img {
+  display: block;
+  float: left;
+}
+.dragend-page{
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+}
+#demo .copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1.4rem;
+  width: 100%;
+  text-shadow: none;
+}
+
+#demo .copyright a {
+  color: #fff;
+}
+
+
+.clfx:before,.clfx:after {
+  content: " ";
+  display: table;
+}
+
+.clfx:after {
+  clear: both;
+}
+
+.clfx {
+  *zoom: 1;
+}
+
+.space {
+  margin-bottom: 2.8rem !important;
+}
+
+.overflow {
+  overflow: hidden;
+  padding: 0 5px 2rem 0;
+}
+
+#swipe-container .content .download {
+  font-size: 1.5rem;
+}
+
+#swipe-container .left {
+  float: left;
+  width: 50%;
+}
+
+#swipe-container .right {
+  width: auto;
+  margin-left: 50%;
+}
+
+#swipe-container .left .content {
+  padding-right: 20px;
+}
+
+#swipe-container .right .content {
+  padding-left: 20px;
+}
