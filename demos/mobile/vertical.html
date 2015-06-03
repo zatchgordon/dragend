@@ -66,6 +66,14 @@
     }
       function scroll(){
          $('#demo').mousewheel(function(event, delta) {
+          $(this).mousewheel(function(evt,delta,deltaX,deltaY){
+    if(Math.abs(deltaY)>=20)
+        deltaY/=20;
+    if(Math.abs(deltaX)>=20)
+        deltaX/=20;
+
+    //Do your stuff here.
+
           if (delta=="-1"){$("#demo").dragend("up");}
           if (delta=="1"){$("#demo").dragend("down");}
             $('#demo').unbind("mousewheel");
@@ -74,6 +82,7 @@
             },300);
 
             return false;
+            });
                     });
       }
 
@@ -88,6 +97,7 @@
       //INITIALIZE DRAGGING
          $("#demo").dragend({
         direction: "vertical",
+        keyboardNavigation: true,
         stopPropagation: true,
         scribe: "0px",
         duration: "500"
@@ -103,6 +113,7 @@
            $("#demo").dragend({
         scrollToPage: page,
         direction: "vertical",
+        keyboardNavigation: true,
         stopPropagation: true,
         scribe: "0px",
         duration: "500"
