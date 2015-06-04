@@ -10,7 +10,8 @@ html {
 }
 
 body {
-  background: #222326;
+  background: #yellow;
+  width:100%;
 }
 
 body, footer {
@@ -18,26 +19,49 @@ body, footer {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-
+h1{
+  color:white;
+}
 img{
 
 }
+.row{
+  max-width: 100%
+}
 .landingPage{
-     padding-top:10%;
+     margin-top:10%;
  }
 .landingPage img{
 
 }
 
 #demo li {
-
+  width:100%;
 }
 
 .dragend-page{
     background:#222326;
+    width: 100% !important;
 }
 
 article{
-  width:100%;
-     
+
+  margin-top: 2%;
+  width:75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.green{
+  background:green;
+  border:1px;
+}
+.info{
+  margin-top:40px !important;
+}
+h1{
+  font-size:4.25rem;
+}
+.blue{
+  margin-top:40px;
+  color:#6BB9C6;
 }
