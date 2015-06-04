@@ -43,7 +43,9 @@ img{
     background:#222326;
     width: 100% !important;
 }
-
+.infoPageArrow{
+  position:absolute;
+}
 article{
 
   margin-top: 2%;
@@ -64,4 +66,7 @@ h1{
 .blue{
   margin-top:40px;
   color:#6BB9C6;
+}
+.arrow{
+  cursor: pointer;
 }
