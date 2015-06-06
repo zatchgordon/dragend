@@ -23,27 +23,135 @@
               <div class="content">
                 <div id="demo">
                   <ul>
+
+                    <!-- First Page -->
                     <li class="dragend-page">
-                      <article>
+                      
                         <div class="row landingPage">
-                          <div class="small-12 medium-12 large-12 columns">
+                          <article>
+                          <div class="small-6 medium-6 large-6 small-centered medium-centered large-centered columns">
                             <img src="img/faitblue.svg">
                           </div>
+                          </article>
                         </div>  
-                      </article>                 
+                                       
                     </li>
+
+                    <!-- Second Page -->
+                    <li class="dragend-page">
+                      <!-- Most computers see this -->
+                          <div class="row portraitHeight">
+                              <article id = "firstArticle">
+                                  <div class="row">
+                                      <div class="row infoPageLogo">
+                                          <div class="small-7 medium-5 large-3 small-centered medium-centered large-centered columns">
+                                              <img src="img/faitblue.svg">
+                                          </div>
+                                      </div>
+                                    
+                                      <div class="row info">
+
+                                        <!-- First page Phone Example (left side) -->
+                                          <div class="hide-for-small-only small-0 medium-4 large-3 text-center small-offset-1 medium-offset-1 large-offset-1 text-center columns">
+                                              <img src="img/faitNotificationMockUp.png">
+                                          </div>
+                                        <!-- End left side -->
+
+                                        <!-- First Page Right Side -->
+                                          <div class="small-12 medium-6 large-6 columns text-center">
+
+                                              <!-- First Page Logo -->
+                                              <div class="row logo">
+                                                  <div class="small-8 medium-6 large-4 small-offset-2 medium-offset-2 large-offset-4 text-center columns">
+                                                      <img src="img/faitLogo.svg">
+                                                  </div>
+                                              </div>
+                                              <!-- First Page Title -->
+                                              <div class="row">
+                                                  <h1 class="small-12 medium-1 large-12 columns text-center blue">What Is FAIT?</h1>
+                                              </div>
+                                          </div>
+                                        <!-- End Right Side -->
+
+                                      </div>
+
+                                      <div class="row arrow">
+                                          <div class="small-2 medium-1 large-1 small-centered medium-centered large-centered text-center columns">
+                                              <img id="distanceArrow" class = "infoPageArrow" src="img/faitFirstPageArrow.svg">
+                                          </div>
+                                      </div>
+
+
+
+                                  </div>
+                              </article>
+                          </div>
+          <!-- FOR LANDSCAPE MODE -->
+                           <div class="row landscapeHeight hide">
+                              <article>
+                                  <div class="row">
+                                      <!-- First Landscape page Phone Example (left side) -->
+                                          <div class="hide-for-small-only small-0 medium-4 large-3 text-center small-offset-1 medium-offset-1 large-offset-1 text-center columns">
+                                              <img class = "firstLandscapePhone" src="img/faitNotificationMockUp.png">
+                                          </div>
+                                        <!-- End First Landsape left side -->
+
+                                        <!-- First Landscape Page Right Side -->
+                                          <div class="small-12 medium-6 large-6 columns text-center rightSide">
+
+                                              <!-- First Landscape Page Logo -->
+                                              <div class="row landscapeLogo">
+                                                  <div class="small-8 medium-6 large-4 medium-offset-3 small-offset-2 large-offset-4 text-center columns">
+                                                      <img src="img/faitLogo.svg">
+                                                  </div>
+                                              </div>
+                                              <!-- First Landscape Page Title -->
+                                              <div class="row">
+                                                  <h1 class="small-12 medium-12 large-12 columns text-center blue">What Is FAIT?</h1>
+                                              </div>
+                                              <div class="row">
+                                                  <p class="small-12 medium-12 large-12 columns text-center">
+                                                      FAIT is a mobile experience that introduces you to amazing people who like the things that you're into when you're out adventuring new areas.
+                                                  </p>
+                                              </div>
+                                          </div>
+                                        <!-- End First Lanscape Right Side -->
+
+
+                                  </div>
+                              </article>
+                            </div>
+
+                      </li>
+                    <!-- Third Page -->
                     <li class="dragend-page">
                       <article>
-                     <h1>This is page 2</h1>
-                     <button value="3">go down</button> 
-                     <button value="1">go up</button> 
-                     </article>    
-                    </li>
-                    <li class="dragend-page">
-                      <article>
-                      <h1>This is page 3</h1> 
-                      <button value="2">go up</button> 
-                      <button value="1">Go To Top</button> 
+                        <div class="row">
+                            <div class="small-1 medium-1 large-1 green columns">1
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">2
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">3
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">4
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">5
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">6
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">7
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">8
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">9
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">10
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">11
+                            </div>
+                            <div class="small-1 medium-1 large-1 green columns">12
+                            </div>
+                    </div>
                       </article>  
                   </ul>
                 </div>
@@ -61,12 +169,90 @@
   <script type="text/javascript" src="../../dist/dragend.min.js"></script>
 
   <script>
+    //CALLED WHEN THE PAGE LOADS AND 
+    //EVERY TIME IT IS RESIZED
+    //CHANGES EACH SECTION TO MATCH SCREEN SIZE
+      function centerVertical(e){
+          vph = $(window).height();
+          height = e.height();
+          return (vph / 2) - (height / 2)
+
+      }
+
+
+
 
       function resizeDiv() {
          vpw = $(window).width();
          vph = $(window).height();
-         $("#demo").css({'height': vph + 'px'});
+
+                  $("#demo").css({'height': vph + 'px'});
+         article = $("#firstArticle")
+         articledist = article.offset().top;
+         articleheight = $("#firstArticle").height();
+         fullarticle = articledist + articleheight;
+         arrowPlace = vph - fullarticle - 50;
+
+
+
+         console.log("height: " + vph);
+         console.log("width: " + vpw);
+        console.log("articleheight: " + articleheight);
+         console.log("articledist: " + articledist);
+         console.log("max: " + arrowPlace);
+
+
+
+         $('.infoPageArrow').css('bottom', -arrowPlace);
+        //LANDSCAPE MODE
+         if(vph < 614 && vpw>614){
+            //SHORTER HEIGHT HIDE THE REGULAR SCREEN AND SHOW THE TABLET SCREEEN
+                  $(".portraitHeight").addClass("hide");
+                  $(".landscapeHeight").removeClass("hide");
+              
+                if(vph < 517){
+                  $(".firstLandscapePhone").attr('src', 'img/faitLogo.svg');
+
+                   $(".firstLandscapePhone").css('margin-top', centerVertical($(".firstLandscapePhone")) + "px")
+
+                  $(".landscapeLogo").addClass("hide");
+                
+                }
+                else{
+                  $(".firstLandscapePhone").css('margin-top', 10)
+
+                  $(".landscapeLogo").removeClass("hide");
+                  $(".firstLandscapePhone").attr('src', 'img/faitNotificationMockUp.png');
+                }
+
+
+          }
+        //PORTRAIT MODE
+          else{
+
+                  $(".landscapeHeight").addClass("hide");
+                  $(".portraitHeight").removeClass("hide");
+
+          }
+
+
+
+            /*
+            if(vph > 614)
+                  $(".portraitHeight").removeClass("hide");
+          else{
+            if(vph<601){
+
+                  $(".arrow, .logo").addClass("hide");
+            }
+            else{
+                  $(".arrow, .logo").removeClass("hide");
+            }
+          }
+            */
     }
+
+    //CHECK DIRECTION OF SCROLL AND SCROLL THAT DIRECTION
       function scroll(){
          $('#demo').mousewheel(function(event, delta) {
           $(this).mousewheel(function(evt,delta,deltaX,deltaY){
