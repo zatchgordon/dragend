@@ -39,60 +39,21 @@
 
                     <!-- Second Page -->
                     <li class="dragend-page">
-                      <!-- Most computers see this -->
+      
                           <div class="row portraitHeight">
                               <article id = "firstArticle">
                                   <div class="row">
                                       <div class="row infoPageLogo">
                                           <div class="small-7 medium-5 large-3 small-centered medium-centered large-centered columns">
-                                              <img src="img/faitblue.svg">
+                                              <img class = "topFait" src="img/faitblue.svg">
                                           </div>
                                       </div>
                                     
-                                      <div class="row info">
-
-                                        <!-- First page Phone Example (left side) -->
-                                          <div class="hide-for-small-only small-0 medium-4 large-3 text-center small-offset-1 medium-offset-1 large-offset-1 text-center columns">
-                                              <img src="img/faitNotificationMockUp.png">
-                                          </div>
-                                        <!-- End left side -->
-
-                                        <!-- First Page Right Side -->
-                                          <div class="small-12 medium-6 large-6 columns text-center">
-
-                                              <!-- First Page Logo -->
-                                              <div class="row logo">
-                                                  <div class="small-8 medium-6 large-4 small-offset-2 medium-offset-2 large-offset-4 text-center columns">
-                                                      <img src="img/faitLogo.svg">
-                                                  </div>
-                                              </div>
-                                              <!-- First Page Title -->
-                                              <div class="row">
-                                                  <h1 class="small-12 medium-1 large-12 columns text-center blue">What Is FAIT?</h1>
-                                              </div>
-                                          </div>
-                                        <!-- End Right Side -->
-
-                                      </div>
-
-                                      <div class="row arrow">
-                                          <div class="small-2 medium-1 large-1 small-centered medium-centered large-centered text-center columns">
-                                              <img id="distanceArrow" class = "infoPageArrow" src="img/faitFirstPageArrow.svg">
-                                          </div>
-                                      </div>
-
-
-
-                                  </div>
-                              </article>
-                          </div>
-          <!-- FOR LANDSCAPE MODE -->
-                           <div class="row landscapeHeight hide">
-                              <article>
-                                  <div class="row">
+                                      <div class="row">
                                       <!-- First Landscape page Phone Example (left side) -->
-                                          <div class="hide-for-small-only small-0 medium-4 large-3 text-center small-offset-1 medium-offset-1 large-offset-1 text-center columns">
+                                          <div class="hide-for-small-only small-0 medium-4 large-3 text-center small-offset-1 medium-offset-1 large-offset-1 text-center leftSide columns">
                                               <img class = "firstLandscapePhone" src="img/faitNotificationMockUp.png">
+                                              <h1 class="small-12 medium-12 large-12 columns text-center hiddenHeader hide blue">What Is FAIT?</h1>
                                           </div>
                                         <!-- End First Landsape left side -->
 
@@ -107,7 +68,7 @@
                                               </div>
                                               <!-- First Landscape Page Title -->
                                               <div class="row">
-                                                  <h1 class="small-12 medium-12 large-12 columns text-center blue">What Is FAIT?</h1>
+                                                  <h1 class="small-12 medium-12 large-12 columns text-center showHeader blue">What Is FAIT?</h1>
                                               </div>
                                               <div class="row">
                                                   <p class="small-12 medium-12 large-12 columns text-center">
@@ -119,8 +80,11 @@
 
 
                                   </div>
+                                  <div class="row">
+
+                                  </div>
                               </article>
-                            </div>
+                          </div>
 
                       </li>
                     <!-- Third Page -->
@@ -173,95 +137,102 @@
     //EVERY TIME IT IS RESIZED
     //CHANGES EACH SECTION TO MATCH SCREEN SIZE
       function centerVertical(e){
-          vph = $(window).height();
+          ph = e.parent().height();
           height = e.height();
-          return (vph / 2) - (height / 2)
+          topFait = ($(".topFait").height())/1.5;
+          console.log("faitheight: " + topFait)
+          position = (vph / 2) - (height / 2);
+          position-=topFait;
+          e.css('margin-top', position + "px");
+          return 0;
 
+      }
+    //Puts element at the bottom the page
+      function bottomVertical(e){
+        ph = e.parent().height();
+        height = e.height();
+
+        position = vph - height;
+
+        e.css('margin-top', position + "px");
       }
 
 
 
-
+    //Gets the screen height and width.  Place elemtents based on those numbers
       function resizeDiv() {
          vpw = $(window).width();
          vph = $(window).height();
 
-                  $("#demo").css({'height': vph + 'px'});
-         article = $("#firstArticle")
-         articledist = article.offset().top;
-         articleheight = $("#firstArticle").height();
-         fullarticle = articledist + articleheight;
-         arrowPlace = vph - fullarticle - 50;
-
-
+         $("#demo").css({'height': vph + 'px'});
+         topFait = $(".topFait");
 
          console.log("height: " + vph);
          console.log("width: " + vpw);
-        console.log("articleheight: " + articleheight);
-         console.log("articledist: " + articledist);
-         console.log("max: " + arrowPlace);
-
-
-
-         $('.infoPageArrow').css('bottom', -arrowPlace);
+         
+         
         //LANDSCAPE MODE
          if(vph < 614 && vpw>614){
             //SHORTER HEIGHT HIDE THE REGULAR SCREEN AND SHOW THE TABLET SCREEEN
-                  $(".portraitHeight").addClass("hide");
-                  $(".landscapeHeight").removeClass("hide");
+                  topFait.addClass("hide");
               
                 if(vph < 517){
-                  $(".firstLandscapePhone").attr('src', 'img/faitLogo.svg');
-
-                   $(".firstLandscapePhone").css('margin-top', centerVertical($(".firstLandscapePhone")) + "px")
-
+                  $(".firstLandscapePhone").attr('src', 'img/faitLogo.svg')
                   $(".landscapeLogo").addClass("hide");
+                  centerVertical($(".firstLandscapePhone"));
+
                 
                 }
                 else{
-                  $(".firstLandscapePhone").css('margin-top', 10)
-
-                  $(".landscapeLogo").removeClass("hide");
                   $(".firstLandscapePhone").attr('src', 'img/faitNotificationMockUp.png');
+                  $(".landscapeLogo").removeClass("hide");
+                  centerVertical($(".firstLandscapePhone"));
+
+                  
+                }
+                if(vph < 270){
+                    $(".hiddenHeader").removeClass("hide");
+                    $(".firstLandscapePhone").addClass("hide");
+                    $(".showHeader").addClass("hide");
+                    centerVertical($(".hiddenHeader"));
+                }
+                else{
+                    $(".hiddenHeader").addClass("hide");
+                    $(".firstLandscapePhone").removeClass("hide");
+                    $(".showHeader").removeClass("hide");
                 }
 
 
           }
         //PORTRAIT MODE
           else{
-
+                  centerVertical($(".firstLandscapePhone"));
                   $(".landscapeHeight").addClass("hide");
                   $(".portraitHeight").removeClass("hide");
+                  
+                  if(vph < 477){
+                      $(".topFait").addClass("hide");
+                  }
+                  else{
+                      $(".topFait").removeClass("hide");
+                  }
+                  if(vph < 400){
+                      $(".landscapeLogo").addClass("hide");
+                  }
+                  else{
+                      $(".landscapeLogo").removeClass("hide");
+                  }
 
           }
 
+              centerVertical($(".rightSide"));
 
-
-            /*
-            if(vph > 614)
-                  $(".portraitHeight").removeClass("hide");
-          else{
-            if(vph<601){
-
-                  $(".arrow, .logo").addClass("hide");
-            }
-            else{
-                  $(".arrow, .logo").removeClass("hide");
-            }
-          }
-            */
     }
 
     //CHECK DIRECTION OF SCROLL AND SCROLL THAT DIRECTION
       function scroll(){
          $('#demo').mousewheel(function(event, delta) {
-          $(this).mousewheel(function(evt,delta,deltaX,deltaY){
-    if(Math.abs(deltaY)>=20)
-        deltaY/=20;
-    if(Math.abs(deltaX)>=20)
-        deltaX/=20;
 
-    //Do your stuff here.
 
           if (delta=="-1"){$("#demo").dragend("up");}
           if (delta=="1"){$("#demo").dragend("down");}
@@ -271,15 +242,16 @@
             },300);
 
             return false;
-            });
+           
                     });
       }
 
 
     $(function() {
+      var lastTime = 0;
       scroll();
       //FIT TO SCREEN EVEN ON RESIZE
-        resizeDiv();
+        
         window.onresize = function(event) {
           resizeDiv();
         }
@@ -313,9 +285,10 @@
       var container = $("html");
 
       $(window).on("load", function() {
+        resizeDiv();
         container.css("opacity", 1)
       })
- 
+      
     });
   </script>
 
